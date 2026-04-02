@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReFind — Buy & Sell Pre-Loved Items</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Re<span>Find</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Shop</a></li>
+      <li><a href="sell.html">Sell</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="cart.html" class="cart-btn">Cart <span class="cart-count" id="navCartCount">0</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-tag">Sustainable Shopping</p>
+    <h1>Treasure Finds,<br/><em>Second Life.</em></h1>
+    <p class="hero-sub">Discover unique pre-loved items from real people. Shop with confidence, sell with ease.</p>
+    <a href="#listings" class="btn-primary">Browse Listings</a>
+  </div>
+  <div class="hero-image">
+    <div class="hero-card floating">
+      <div class="hero-badge">Just listed</div>
+      <div class="hero-item-img" style="background:#f5e6d3;">🎸</div>
+      <p>Vintage Guitar</p>
+      <strong>$120</strong>
+    </div>
+    <div class="hero-card floating delay">
+      <div class="hero-badge sold">Sold</div>
+      <div class="hero-item-img" style="background:#d3e8f5;">📷</div>
+      <p>Film Camera</p>
+      <strong>$85</strong>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="container">
+    <h2>Browse by Category</h2>
+    <div class="cat-grid">
+      <button class="cat-pill active" data-cat="all">All</button>
+      <button class="cat-pill" data-cat="electronics">Electronics</button>
+      <button class="cat-pill" data-cat="furniture">Furniture</button>
+      <button class="cat-pill" data-cat="clothing">Clothing</button>
+      <button class="cat-pill" data-cat="books">Books</button>
+      <button class="cat-pill" data-cat="music">Music</button>
+      <button class="cat-pill" data-cat="sports">Sports</button>
+    </div>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section class="listings" id="listings">
+  <div class="container">
+    <div class="listings-header">
+      <h2>Available Listings</h2>
+      <select id="sortSelect" class="sort-select">
+        <option value="newest">Newest First</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+      </select>
+    </div>
+    <div class="listings-grid" id="listingsGrid"></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <h2>How It Works</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Browse Listings</h3>
+        <p>Find unique items from real sellers in your area and across the country.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Secure Payment</h3>
+        <p>Pay safely via Stripe. Your money is held until you confirm delivery.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Get Your Item</h3>
+        <p>Arrange pickup or shipping with the seller. Leave a review once done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <p class="logo">Re<span>Find</span></p>
+    <p>&copy; 2025 ReFind. All rights reserved.</p>
+    <ul>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

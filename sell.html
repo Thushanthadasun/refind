@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sell an Item — ReFind</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Re<span>Find</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="sell.html" class="active">Sell</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="cart.html" class="cart-btn">Cart <span class="cart-count" id="navCartCount">0</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <h1>List Your Item</h1>
+    <p>Reach thousands of buyers. It's free to list.</p>
+  </div>
+</section>
+
+<section class="sell-section">
+  <div class="container">
+    <form class="sell-form" id="sellForm">
+      <div class="form-group">
+        <label>Item Title *</label>
+        <input type="text" id="itemTitle" placeholder="e.g. Vintage Leather Jacket, Size M" required />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Category *</label>
+          <select id="itemCategory" required>
+            <option value="">Select category...</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
+            <option value="clothing">Clothing</option>
+            <option value="books">Books</option>
+            <option value="music">Music</option>
+            <option value="sports">Sports</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Condition *</label>
+          <select id="itemCondition" required>
+            <option value="">Select condition...</option>
+            <option value="Like New">Like New</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Well Used">Well Used</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Description *</label>
+        <textarea id="itemDesc" rows="4" placeholder="Describe your item — age, brand, any defects, why you're selling..." required></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Price (USD) *</label>
+          <input type="number" id="itemPrice" min="1" placeholder="0.00" required />
+        </div>
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="sellerName" placeholder="First name" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Emoji Icon (pick one that fits)</label>
+        <div class="emoji-picker" id="emojiPicker">
+          <span class="emoji-opt selected" data-emoji="📦">📦</span>
+          <span class="emoji-opt" data-emoji="👕">👕</span>
+          <span class="emoji-opt" data-emoji="👟">👟</span>
+          <span class="emoji-opt" data-emoji="📱">📱</span>
+          <span class="emoji-opt" data-emoji="💻">💻</span>
+          <span class="emoji-opt" data-emoji="🎸">🎸</span>
+          <span class="emoji-opt" data-emoji="📷">📷</span>
+          <span class="emoji-opt" data-emoji="📚">📚</span>
+          <span class="emoji-opt" data-emoji="🛋️">🛋️</span>
+          <span class="emoji-opt" data-emoji="🚲">🚲</span>
+          <span class="emoji-opt" data-emoji="⌚">⌚</span>
+          <span class="emoji-opt" data-emoji="🎨">🎨</span>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary">Publish Listing</button>
+    </form>
+    <div class="sell-success hidden" id="sellSuccess">
+      <div class="success-icon">✓</div>
+      <h2>Listing Published!</h2>
+      <p>Your item is now live. Buyers can see it on the shop page.</p>
+      <a href="index.html" class="btn-primary">View All Listings</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <p class="logo">Re<span>Find</span></p>
+    <p>&copy; 2025 ReFind. All rights reserved.</p>
+    <ul>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="sell.js"></script>
+</body>
+</html>
