@@ -3,9 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://js.stripe.com;
+    style-src 'self' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    connect-src https://api.stripe.com;
+    img-src 'self' data:;
+    frame-src https://js.stripe.com https://hooks.stripe.com;
+    object-src 'none';
+    base-uri 'self';
+  " />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <title>Sell an Item — ReFind</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -31,14 +45,15 @@
 
 <section class="sell-section">
   <div class="container">
-    <form class="sell-form" id="sellForm">
+    <form class="sell-form" id="sellForm" novalidate>
       <div class="form-group">
-        <label>Item Title *</label>
-        <input type="text" id="itemTitle" placeholder="e.g. Vintage Leather Jacket, Size M" required />
+        <label for="itemTitle">Item Title *</label>
+        <input type="text" id="itemTitle" placeholder="e.g. Vintage Leather Jacket, Size M"
+               maxlength="100" autocomplete="off" required />
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Category *</label>
+          <label for="itemCategory">Category *</label>
           <select id="itemCategory" required>
             <option value="">Select category...</option>
             <option value="electronics">Electronics</option>
@@ -50,7 +65,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Condition *</label>
+          <label for="itemCondition">Condition *</label>
           <select id="itemCondition" required>
             <option value="">Select condition...</option>
             <option value="Like New">Like New</option>
@@ -61,17 +76,20 @@
         </div>
       </div>
       <div class="form-group">
-        <label>Description *</label>
-        <textarea id="itemDesc" rows="4" placeholder="Describe your item — age, brand, any defects, why you're selling..." required></textarea>
+        <label for="itemDesc">Description *</label>
+        <textarea id="itemDesc" rows="4" maxlength="1000"
+                  placeholder="Describe your item — age, brand, any defects, why you're selling..." required></textarea>
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Price (USD) *</label>
-          <input type="number" id="itemPrice" min="1" placeholder="0.00" required />
+          <label for="itemPrice">Price (USD) *</label>
+          <input type="number" id="itemPrice" min="0.01" max="99999" step="0.01"
+                 placeholder="0.00" required />
         </div>
         <div class="form-group">
-          <label>Your Name *</label>
-          <input type="text" id="sellerName" placeholder="First name" required />
+          <label for="sellerName">Your Name *</label>
+          <input type="text" id="sellerName" placeholder="First name"
+                 maxlength="50" autocomplete="given-name" required />
         </div>
       </div>
       <div class="form-group">

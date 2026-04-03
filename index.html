@@ -3,14 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ReFind — Buy & Sell Pre-Loved Items</title>
+
+  <!--
+    [FIX-13] Content Security Policy
+    - default-src 'self'          → blocks all external resources by default
+    - script-src 'self' + Stripe  → only our scripts + Stripe.js allowed; no inline scripts
+    - style-src 'self' + Google   → only our stylesheet + Google Fonts
+    - font-src + connect-src      → Google Fonts files + Stripe API calls
+    - img-src 'self' data:        → no external image injection
+    - frame-src stripe.com        → Stripe uses iframes for the card element
+    - object-src 'none'           → blocks Flash/plugins entirely
+    - base-uri 'self'             → blocks <base> tag injection attacks
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://js.stripe.com;
+    style-src 'self' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    connect-src https://api.stripe.com;
+    img-src 'self' data:;
+    frame-src https://js.stripe.com https://hooks.stripe.com;
+    object-src 'none';
+    base-uri 'self';
+  " />
+
+  <!-- [FIX-14] Prevent clickjacking -->
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <!-- [FIX-15] Prevent MIME sniffing -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+  <title>ReFind — Buy &amp; Sell Pre-Loved Items</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-inner">
     <a href="index.html" class="logo">Re<span>Find</span></a>
@@ -23,7 +52,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <p class="hero-tag">Sustainable Shopping</p>
@@ -47,7 +75,6 @@
   </div>
 </section>
 
-<!-- CATEGORIES -->
 <section class="categories">
   <div class="container">
     <h2>Browse by Category</h2>
@@ -63,7 +90,6 @@
   </div>
 </section>
 
-<!-- LISTINGS -->
 <section class="listings" id="listings">
   <div class="container">
     <div class="listings-header">
@@ -78,7 +104,6 @@
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="container">
     <h2>How It Works</h2>
@@ -102,7 +127,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="container footer-inner">
     <p class="logo">Re<span>Find</span></p>
